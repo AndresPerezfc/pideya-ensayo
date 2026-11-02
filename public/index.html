@@ -3,18 +3,48 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>PideYa · en construcción</title>
+  <title>PideYa · El Tintico</title>
   <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
   <!-- App del estudiante. Relevo 1 (Frontend). -->
   <header class="barra">
-    <h1>PideYa · en construcción</h1>
-    <p>Pide en la cafetería sin hacer fila</p>
+    <h1>PideYa</h1>
+    <p>Pide en El Tintico sin hacer fila</p>
   </header>
   <main>
-    <div id="menu" class="aviso">Aquí va a aparecer el menú de la cafetería.</div>
+    <h2 class="titulo-menu">Menú de hoy</h2>
+    <div id="menu" class="menu">
+      <p class="aviso">Cargando el menú…</p>
+    </div>
   </main>
+  <footer class="carrito" aria-label="Tu carrito">
+    <div class="carrito-contenido">
+      <div class="carrito-resumen" aria-live="polite">
+        <span id="carrito-cantidad">0 de 5 productos</span>
+        <strong id="carrito-total">$0</strong>
+      </div>
+      <p id="carrito-limite" class="carrito-limite" hidden>Llegaste al máximo de 5 productos por pedido.</p>
+      <form id="form-pedido" class="form-pedido" novalidate>
+        <label class="form-etiqueta" for="nombre">Tu nombre</label>
+        <div class="form-fila">
+          <input id="nombre" name="nombre" type="text" autocomplete="given-name" placeholder="¿A nombre de quién?">
+          <button id="boton-pedir" type="submit" disabled>Pedir</button>
+        </div>
+      </form>
+      <p id="carrito-error" class="carrito-error" role="alert" hidden></p>
+    </div>
+  </footer>
+  <section id="pantalla-pedido" class="pantalla-pedido" hidden>
+    <h2 id="pedido-titulo" class="pedido-titulo" tabindex="-1">¡Pedido recibido!</h2>
+    <p class="pedido-ayuda">Tu código de recogida es</p>
+    <p id="pedido-codigo" class="pedido-codigo"></p>
+    <p class="pedido-ayuda">Estado de tu pedido</p>
+    <p id="pedido-estado" class="pedido-estado" aria-live="polite"></p>
+    <p class="pedido-total">Total: <strong id="pedido-total"></strong></p>
+    <p class="pedido-ayuda">Pagas en caja al recoger.</p>
+    <p id="pedido-aviso" class="pedido-aviso" role="status" hidden>No pudimos actualizar el estado. Seguimos intentando…</p>
+  </section>
   <script src="app.js"></script>
 </body>
 </html>
